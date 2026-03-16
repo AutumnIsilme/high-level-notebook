@@ -80,6 +80,8 @@ For this code, we tested with core counts in powers of 2 from 1 to 64.
 
 Hence, our 80% threshold is at >=4 cores and our 60% threshold is at >=8. As a proportion of the number of cores available, which is 128 on the node this was run on, this is 0.03 and 0.06.
 
+<img src='images/intranode.png' width=500 />
+
 ## Inter-node Analysis
 For a basic high-level analysis of inter-node performance, we perform a weak scaling by increasing problem size linearly with node allocation.
 

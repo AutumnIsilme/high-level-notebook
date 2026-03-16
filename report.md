@@ -21,10 +21,10 @@ The software CPU compute rate was determined with
 $ 
 ```
 
-| Result | MFLOP/s | 
-| ----------- | - |
-| Hardware    |   |
-| Performance |   |
+|    | MFLOP/s | 
+| -------- | - |
+| CPU      |   |
+| Measured |   |
 
 We determine this software to have a CPU score of `X`.
 
@@ -38,10 +38,10 @@ The software GPU compute rate was determined with
 $ 
 ```
 
-| Result | MFLOP/s | 
-| ----------- | - |
-| Hardware    |   |
-| Performance |   |
+|    | MFLOP/s |
+| -------- | - |
+| GPU      |   |
+| Measured |   |
 
 We determine this software to have a GPU score of `X`.
 
@@ -71,6 +71,8 @@ For this code, we tested with core counts in powers of 2 from 1 to 64.
 | 64 |   |   |
 
 Hence, our 80% threshold is at `X` cores and our 60% threshold is at `Y` cores. As a proportion of the number of cores available, which is `Z` on the node this was run on, this gives a score of `X/Z` and `Y/Z`.
+
+<img src='images/intranode.png' width=500 />
 
 ## Inter-node Analysis
 For a basic high-level analysis of inter-node performance, we perform a weak scaling by increasing problem size linearly with node allocation.
