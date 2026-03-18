@@ -82,7 +82,7 @@ def summary_to_bar_chart(rubrics: list[tuple[int, float]]) -> plt.Figure:
     # Rotate labels so they don't overlap
     fig.autofmt_xdate()
 
-    return None
+    return fig
 
 def parse_args():
     parser = ap.ArgumentParser(
@@ -157,7 +157,7 @@ def _main():
             print("Assuming CSV input")
         split_commas = lambda l: l.split(',')
         lines = map(split_commas, lines)
-    
+
     lines = list(lines)
     if args.verbose:
         print(f"lines (after converting to list): {lines}")
