@@ -91,12 +91,12 @@ As this code does not utilise MPI or other inter-node features, this section is 
 
 The following table collates the results of all above sections. These scores are indicative only, and cannot truly be compared to one another meaningfully without taking into account domain knowledge and methodological differences between them.
 
-| Result | Score | 
-| ----------- | ----------- |
-| CPU | 0.624 |
-| GPU | 0.938 |
-| IO | 1.000 |
-| Intra-node (80%) | 0.03125 |
+| Result | Score | Metric result |
+| ----------- | ----------- | - |
+| CPU | 0.624 | 5492.5 MFLOP/s |
+| GPU | 0.938 |  |
+| IO | 1.000 | 0s |
+| Intra-node (80%) | 0.031 | 8 cores |
 
 With that said, from this table and with our knowledge of performance engineering, we would recommend that the CPU variant of the algorithm or the intra-node scaling be examined as potential points where improvements could be made.
 

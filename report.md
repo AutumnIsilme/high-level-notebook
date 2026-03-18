@@ -83,14 +83,12 @@ For a basic high-level analysis of inter-node performance, we perform a weak sca
 
 The following table collates the results of all above sections. These scores are indicative only, and cannot truly be compared to one another meaningfully without taking into account domain knowledge and methodological differences between them.
 
-| Result | Score | 
-| ---------------- | - |
-| CPU              |   |
-| GPU              |   |
-| IO               |   |
-| Intra-node (80%) |   |
-| Intra-node (60%) |   |
-| Inter-node (80%) |   |
-| Inter-node (60%) |   |
+| Result | Score | Metric result |
+| ---------------- | - | - |
+| CPU              |   |   |
+| GPU              |   |   |
+| IO               |   |   |
+| Intra-node (80%) |   |   |
+| Inter-node (80%) |   |   |
 
 <img src='images/spiderweb.png' width=500 />
