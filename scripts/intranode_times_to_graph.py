@@ -57,8 +57,12 @@ def intranode_times_to_graph(times: list[tuple[int, float]]) -> plt.Figure:
     ax.set_ylabel(r'$E(p)$')
 
     ax.axvline(x=p_crit_80, color="#ffc844", linestyle="--")
+    ax.text(p_crit_80, 0.05, "80%", rotation=90)
     ax.axvline(x=p_crit_60, color="#e35555", linestyle="--")
+    ax.text(p_crit_60, 0.05, "60%", rotation=90)
     ax.plot(core_counts, efficiency, '.-', color="black", linewidth=2)
+
+    ax.set_title("Intra-node strong scaling efficiency", fontsize=14)
 
     return fig
 
