@@ -96,6 +96,7 @@ def parse_args():
     parser.add_argument("-d", "--default", action="store_true", help=f"Output to the default file, '{DEFAULT_FILE}'")
     parser.add_argument("-v", "--verbose", action="store_true", help="Print extra debug outputs")
     parser.add_argument("-s", "--stdout-graph", action="store_true", help="Output image data to stdout (useful for piping)")
+    parser.add_argument("--svg", action="store_true", help="Output graph as SVG to default file rather than PNG")
 
     parser.add_argument("-o", "--output", help="Specify an output file")
 
@@ -107,7 +108,15 @@ def parse_args():
     if args.default and not args.output:
         if args.verbose:
             print(f"STATUS: Setting output to default filepath '{DEFAULT_FILE}'")
-        args.output = DEFAULT_FILE
+        if args.svg:
+            args.output = DEFAULT_FILE[:-3] + "svg"
+        else:
+            args.output = DEFAULT_FILE
+    elif args.default and args.output:
+        print("WARNING: Specifying output file overrides request to output to default file.")
+
+    if args.svg and not args.default:
+        print("WARNING: svg flag only has an effect when outputting to the default file. Matplotlib will output to svg if you specify a filename with file ending '.svg'")
 
     return args
 
