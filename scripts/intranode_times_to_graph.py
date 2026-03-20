@@ -111,6 +111,7 @@ def parse_args():
     parser.add_argument("-d", "--default", action="store_true", help="Output any requested outputs with unspecified file to their default file.")
     parser.add_argument("-v", "--verbose", action="store_true", help="Print extra debug outputs")
     parser.add_argument("-s", "--stdout-graph", action="store_true", help="Output image data to stdout")
+    parser.add_argument("--svg", action="store_true", help="Output graph to default file will output SVG rather than PNG")
 
     parser.add_argument("-o", "--output", help="Specify an output file. This can only be used if exactly one output type is requested")
     parser.add_argument("--graph-file", help="Specify an output file for the graph. Default: 'images/intranode.png'")
@@ -131,11 +132,16 @@ def parse_args():
         if args.verbose:
             print(f"Setting default files")
         if not args.graph_file and not args.stdout_graph:
-            args.graph_file = 'images/intranode.png'
+            if args.svg:
+                args.graph_file = 'images/intranode.svg'
+            else:
+                args.graph_file = 'images/intranode.png'
         if not args.markdown_file:
             args.markdown_file = 'intranode_table.md'
         if not args.critical_points_file:
             args.critical_points_file = 'intranode_critical_proportions.txt'
+    if args.svg and (args.default or args.graph_file or (args.graph and args.output)):
+        print("WARNING: svg flag only has an effect when outputting to the default file. Matplotlib will output to svg if you specify a filename with file ending '.svg'")
 
     if args.graph + args.markdown + args.critical_points >= 2 and args.output:
         print("ERROR: single specified output file is not valid when multiple outputs are requested at once.")
